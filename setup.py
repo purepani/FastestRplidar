@@ -8,7 +8,8 @@ from distutils.core import setup, Extension
 
 
 fastestrplidar_module = Extension('_fastestrplidar',
-                           sources=['fastestrplidar_wrap.cxx', 'fastestrplidar.cpp'],
+                           sources=['fastestrplidar.i', 'fastestrplidar.cpp'],
+                            swig_opts=['-c++'],
 				extra_objects=["librplidar_sdk.a"],
 				extra_compile_args=['-lpthread', '-lstdc++'],
 
