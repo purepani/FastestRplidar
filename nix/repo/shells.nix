@@ -22,13 +22,13 @@ in {
       }: {
         # This is your devenv configuration
         packages = with pkgs; [
-          libGL
-          zlib
-          glib
+          #libGL
+          #zlib
+          #glib
           #stdenv.cc.cc.lib
-          pam
-          config.languages.python.package.pkgs.tkinter
-          config.languages.python.package.pkgs.pyqt5
+          #pam
+          #config.languages.python.package.pkgs.tkinter
+          #config.languages.python.package.pkgs.pyqt5
           #inputs.cells.lidar.FastestRplidar
           #swig
           #gpp
