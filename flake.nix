@@ -4,6 +4,14 @@
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
     mach-nix.url = "github:DavHau/mach-nix";
+
+    mach-nix.inputs.nixpkgs.follows = "nixpkgs";
+    pypi-deps-db = {
+      url = "github:DavHau/pypi-deps-db";
+      flake = false;
+    };
+    mach-nix.inputs.pypi-deps-db.follows = "pypi-deps-db";
+
     std.url = "github:divnix/std";
     std.inputs.devshell.url = "github:numtide/devshell";
     rplidar_sdk = {
