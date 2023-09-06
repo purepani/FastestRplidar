@@ -4,6 +4,12 @@
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
     mach-nix.url = "github:DavHau/mach-nix";
+    std.url = "github:divnix/std";
+    std.inputs.devshell.url = "github:numtide/devshell";
+    rplidar_sdk = {
+      url = "github:Slamtec/rplidar_sdk";
+      flake = false;
+    };
   };
 
   nixConfig = {
@@ -11,40 +17,22 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    devenv,
-    systems,
-    mach-nix,
-    ...
-  } @ inputs: let
-    forEachSystem = nixpkgs.lib.genAttrs (import systems);
-    fastestrplidar_drv = system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-      mach-nix.lib."${system}".buildPythonPackage {
-        src = ./.;
-        nativeBuildInputs = [pkgs.swig4 pkgs.gccMultiStdenv];
-        buildInputs = [pkgs.python3 ];
-        preConfigure = ''
-          ${pkgs.swig4}/bin/swig -c++ -python fastestrplidar.i
-          ls
-          ${pkgs.python3}/bin/python setup.py build_ext --inplace
-        '';
-        postInstall = ''
-          ls
-          ls $out
-        '';
-      };
-  in {
-    devShells =
-      forEachSystem
-      (system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        default = mach-nix.lib.${system}.mkPythonShell {packagesExtra = [(fastestrplidar_drv system)];};
-      });
-    packages = forEachSystem (system: {default = fastestrplidar_drv system;});
-  };
+  outputs = {std, ...} @ inputs:
+    std.growOn {
+      inherit inputs;
+      cellsFrom = ./nix;
+      cellBlocks = with std.blockTypes; [
+        # Development Environments
+        (nixago "configs")
+        (devshells "shells")
+        #(functions "FastestRplidar")
+        (installables "package")
+      ];
+    }
+    {
+      devShells = std.harvest inputs.self ["repo" "shells"];
+    }
+    {
+      packages = std.harvest inputs.self ["FastestRplidar" "package"];
+    };
 }
