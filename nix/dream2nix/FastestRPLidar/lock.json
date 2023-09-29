@@ -1,0 +1,32 @@
+{
+  "fetchPipMetadata": {
+    "sources": {
+      "numpy": {
+        "sha256": "86f737708b366c36b76e953c46ba5827d8c27b7a8c9d0f471810728e5a2fe57c",
+        "type": "url",
+        "url": "https://files.pythonhosted.org/packages/75/cd/7ae0f2cd3fc68aea6cfb2b7e523842e1fa953adb38efabc110d27ba6e423/numpy-1.26.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "version": "1.26.0"
+      },
+      "setuptools": {
+        "sha256": "b454a35605876da60632df1a60f736524eb73cc47bbc9f3f1ef1b644de74fd2a",
+        "type": "url",
+        "url": "https://files.pythonhosted.org/packages/bb/26/7945080113158354380a12ce26873dd6c1ebd88d47f5bc24e2c5bb38c16a/setuptools-68.2.2-py3-none-any.whl",
+        "version": "68.2.2"
+      },
+      "swig": {
+        "sha256": "3f9da5564718bb81234dd497dc265025b0456c6c9378dfa8206cda56a7fa65ba",
+        "type": "url",
+        "url": "https://files.pythonhosted.org/packages/c3/8a/ba4b178267a4557adde824a6e53b74006e7852ebba8b0fab9f31dcf1e30b/swig-4.1.1-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl",
+        "version": "4.1.1"
+      }
+    },
+    "targets": {
+      "default": {
+        "numpy": [],
+        "setuptools": [],
+        "swig": []
+      }
+    }
+  },
+  "invalidationHash": "73706960605f78d677cf15ceb57fff6724a94d9c484d9003eb0ae15d3b8fa545"
+}

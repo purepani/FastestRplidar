@@ -1,0 +1,10 @@
+[build-system]
+requires = ["swig", "setuptools"]
+build-backend = "setuptools.build_meta:__legacy__"
+
+[project]
+name = "FastestRPLidar"
+version = "0.1.0"
+dependencies = ["numpy"]
+
+

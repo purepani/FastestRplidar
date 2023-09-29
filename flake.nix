@@ -3,14 +3,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
-    mach-nix.url = "github:DavHau/mach-nix";
+        mach-nix.url = "github:DavHau/mach-nix";
 
-    mach-nix.inputs.nixpkgs.follows = "nixpkgs";
+        mach-nix.inputs.nixpkgs.follows = "nixpkgs";
     pypi-deps-db = {
       url = "github:DavHau/pypi-deps-db";
       flake = false;
     };
-    mach-nix.inputs.pypi-deps-db.follows = "pypi-deps-db";
+        mach-nix.inputs.pypi-deps-db.follows = "pypi-deps-db";
 
     std.url = "github:divnix/std";
     std.inputs.devshell.url = "github:numtide/devshell";
@@ -18,6 +18,7 @@
       url = "github:Slamtec/rplidar_sdk";
       flake = false;
     };
+    dream2nix.url = "github:nix-community/dream2nix";
   };
 
   nixConfig = {
@@ -33,14 +34,12 @@
         # Development Environments
         (nixago "configs")
         (devshells "shells")
-        #(functions "FastestRplidar")
+        (functions "dreamModules")
         (installables "package")
       ];
     }
     {
       devShells = std.harvest inputs.self ["repo" "shells"];
-    }
-    {
-      packages = std.harvest inputs.self ["FastestRplidar" "package"];
+      packages = std.harvest inputs.self ["packages" "package"];
     };
 }

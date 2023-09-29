@@ -1,0 +1,26 @@
+{
+  "fetchPipMetadata": {
+    "sources": {
+      "fastestrplidar": {
+        "path": "FastestRPLidar",
+        "type": "local",
+        "version": "0.1.0"
+      },
+      "numpy": {
+        "sha256": "86f737708b366c36b76e953c46ba5827d8c27b7a8c9d0f471810728e5a2fe57c",
+        "type": "url",
+        "url": "https://files.pythonhosted.org/packages/75/cd/7ae0f2cd3fc68aea6cfb2b7e523842e1fa953adb38efabc110d27ba6e423/numpy-1.26.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "version": "1.26.0"
+      }
+    },
+    "targets": {
+      "default": {
+        "fastestrplidar": [
+          "numpy"
+        ],
+        "numpy": []
+      }
+    }
+  },
+  "invalidationHash": "486bb4418cef2f3b53e75d82bf97d01944ecd1bc13c2da7aeb149b04c74253c2"
+}

@@ -1,11 +1,12 @@
-{
-  inputs,
-  cell,
-}: let
+#{
+#  inputs,
+#  cell,
+#}:
+let
   pkgs = inputs.nixpkgs;
   source = inputs.rplidar_sdk;
 in
-  pkgs.stdenv.mkDerivation rec {
+  pkgs.stdenv.mkDerivation {
     pname = "rplidar_sdk";
     version = "2.0.0";
 
